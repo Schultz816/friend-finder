@@ -1,0 +1,30 @@
+{
+  "name": "friend-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mysql": "^2.13.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Schultz816/friend-finder.git"
+  },
+  "engines": {
+    "node": "4.4.7"
+  },
+  "keywords": [],
+  "author": "Corey Schultz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Schultz816/friend-finder/issues"
+  },
+  "homepage": "https://github.com/Schultz816/friend-finder#readme"
+}
