@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Friend Finder - Survey</title>
-
-    <!-- Latest compiled and minified CSS & JS -->
+   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -124,7 +123,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <br>
-                <!-- Materialize Modal Trigger/Submit Button -->
+                
                 <button type ="submit" data-target="modal1" class="waves-effect waves-light btn modal-trigger cyan lighten-1" id="submitBtn">Submit</button>
             </div>
         </div>
@@ -132,7 +131,7 @@
             <p><a href='/api/friends'>API Friends List</a> | <a href='https://github.com/Schultz816/friend-finder' target='_blank'>GitHub Repo</a></p>
         </div>
 
-        <!-- Materialize Modal Structure -->
+        
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h4>Meet Your New BFF</h4>
@@ -146,11 +145,10 @@
 
     </div>
 
-<!-- Grabs information and sends it to server -->
 <script type="text/javascript">
 $(document).ready(function() {
     $("#submitBtn").on("click", function() {
-        //form validation
+        
         function validateForm() {
             var isValid = true;
             $('.validate').each(function() {
@@ -165,9 +163,9 @@ $(document).ready(function() {
             });
             return isValid;
         }
-        //if everything is filled
+        
         if (validateForm() == true) {
-            //creates a new friend from the values submitted
+            
             var newFriend = {
                 name: $('#name').val().trim(),
                 profilePic: $('#photo').val().trim(),
@@ -184,17 +182,16 @@ $(document).ready(function() {
                     $('#q10').val(),
                 ]
             };
-            //Grabs current URL of website
+            
             var currentURL = window.location.origin;
-            //AJAX posts the data to friends API.
+            
             $.post(currentURL + "/api/friends", newFriend, function(data) {
-                //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+               
                 $("#matchName").text(data.name);
                 $("#matchPic").attr("src", data.profilePic);
             });
-            // Show the modal with the best match
+            
                 $('.modal').modal();
-            //clear form after submission
             $('#name').val("");
             $('#photo').val("");
             $('#q1').val("");
